@@ -1,0 +1,26 @@
+{
+  "name": "secgin/api-library-base",
+  "description": "PHP için API entegrasyonları için kütüphanerin oluşturlması kolaylaştırmak için tasarlanmıştır.",
+  "autoload": {
+    "psr-4": {
+      "S\\Halkode\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "App\\": "demo/src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Seçgin",
+      "email": "secginsanli@gmail.com"
+    }
+  ],
+  "require": {
+    "ext-curl": "*",
+    "ext-json": "*",
+    "ext-ctype": "*",
+    "ext-openssl": "*"
+  }
+}
