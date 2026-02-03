@@ -1,6 +1,6 @@
 {
-  "name": "secgin/api-library-base",
-  "description": "PHP için API entegrasyonları için kütüphanerin oluşturlması kolaylaştırmak için tasarlanmıştır.",
+  "name": "secgin/halkode-api-library",
+  "description": "PHP İçin Halk Öde API Kütüphanesi",
   "autoload": {
     "psr-4": {
       "S\\Halkode\\": "src/"
