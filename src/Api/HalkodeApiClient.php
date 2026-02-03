@@ -35,21 +35,26 @@ class HalkodeApiClient extends AbstractApiClient implements \S\Halkode\HalkodeAp
             )
         )
         {
-            $this->refreshToken();
+            $result = $this->refreshToken();
+            if (!$result->isSuccess())
+                return $result;
         }
 
         $result = parent::handle($requestName, $request);
 
         if (!$result->isSuccess() and $result->getErrorCode() == '401')
         {
-            $this->refreshToken();
+            $result = $this->refreshToken();
+            if (!$result->isSuccess())
+                return $result;
+
             return parent::handle($requestName, $request);
         }
 
         return $result;
     }
 
-    private function refreshToken(): void
+    private function refreshToken(): Result
     {
         $handler = $this->getRequestHandler('getAccessToken');
 
@@ -60,5 +65,7 @@ class HalkodeApiClient extends AbstractApiClient implements \S\Halkode\HalkodeAp
             $accessToken = new SimpleAccessToken($result->token, date_create($result->expiresAt));
             $this->tokenStorage->set('token', $accessToken);
         }
+
+        return $result;
     }
 }

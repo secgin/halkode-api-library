@@ -40,7 +40,7 @@ class Result extends AbstractResult
             return $instance;
         }
 
-        return self::fail($statusCode, $statusDescription, $data->data);
+        return self::fail($statusCode, $statusDescription, $data);
     }
 
     public static function success($data): Result
